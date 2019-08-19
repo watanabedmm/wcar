@@ -4,7 +4,7 @@ class CreateCarItems < ActiveRecord::Migration[5.2]
     	t.integer :year
     	t.integer :distance
     	t.integer :inspection
-      	t.string :color
+      t.string :color
     	t.integer :price
     	t.string :image_id
     	t.string :grade_id

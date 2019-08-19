@@ -1,15 +1,37 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="container">
+  <div class="row text-center">
+    <h2>サインアップ</h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="field">
+      <h3>名前</h3>
+      <p>姓</p>
+      <%= f.text_field :name_first %>
+      <p>名</p>
+      <%= f.text_field :name_last %><br>
+    </div>
+    <div class="field">
+      <h3>郵便番号</h3>
+      <%= f.text_field :post_code %>
+    </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :address, '住所'%><br/>
+    <%= f.text_field :address %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :email, 'メールアドレス'%><br/>
+    <%= f.email_field :email %>
+  </div>
+
+　<div class="field">
+    <%= f.label :phone, '電話番号' %><br/>
+    <%= f.text_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, 'パスワード' %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -17,13 +39,15 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation, 'パスワード' %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+
+
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "GO" %>
   </div>
 <% end %>
 
-<%= render "users/shared/links" %>
+<%= render "devise/shared/links" %>

@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_11_101340) do
+ActiveRecord::Schema.define(version: 2019_08_17_095421) do
+
+  create_table "admins", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "name_first"
+    t.string "name_last"
+    t.string "post_code"
+    t.string "address"
+    t.string "phone"
+    t.integer "enquiry_id"
+    t.boolean "is_quit", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
 
   create_table "car_items", force: :cascade do |t|
     t.integer "year"
@@ -32,6 +51,13 @@ ActiveRecord::Schema.define(version: 2019_08_11_101340) do
   end
 
   create_table "enquiries", force: :cascade do |t|
+    t.string "mycar_maker"
+    t.string "mycar_name"
+    t.string "mycar_distance"
+    t.string "mycar_year"
+    t.string "insurance_select"
+    t.integer "user_id"
+    t.string "area"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -54,8 +80,8 @@ ActiveRecord::Schema.define(version: 2019_08_11_101340) do
   end
 
   create_table "makers", force: :cascade do |t|
-    t.string "name"
-    t.boolean "is_japan"
+    t.string "name", null: false
+    t.boolean "is_japan", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -71,6 +97,13 @@ ActiveRecord::Schema.define(version: 2019_08_11_101340) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "name_first"
+    t.string "name_last"
+    t.string "post_code"
+    t.string "address"
+    t.string "phone"
+    t.string "area"
+    t.boolean "is_quit", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
