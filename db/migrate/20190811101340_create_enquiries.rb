@@ -8,7 +8,7 @@ class CreateEnquiries < ActiveRecord::Migration[5.2]
       t.string :insurance_select
       t.integer :user_id
       t.string :area
-
+      t.string :comment
       t.timestamps
     end
   end

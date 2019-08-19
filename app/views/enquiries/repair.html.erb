@@ -1,13 +1,18 @@
 <h1>修理問い合わせ</h1>
-<p>おなまえ</p>
-<p>ひらがな＊全角ひらがなでご記入ください</p>
-<p>苗字入力</p>
-<p>名前入力</p>
+<%= form_for(@enquiry) do |f| %>
+<p>名前</p>
+<%= @user.name_last %>
+<%= @user.name_first %>
 <p>電話番号</p>
-<p>電話番号入力</p>
+<%= @user.phone %>
 <p>地域</p>
-<p>地域選択</p>
+<%= f.select :area, Enquiry.areas.keys.to_a,{} %>
 <p>メーカー名</p>
+<%= f.select :mycar_maker, Enquiry.mycar_makers.keys.to_a,{} %>
 <p>車種名</p>
-<p>任意コメント記入欄</p>
-<p>無料見積もりを申し込む</p>
+<%= f.text_field :mycar_name, class: "form-control", placeholder: '車種名' %>
+<p>任意コメント</p>
+<p><%= f.text_field :comment, class: "form-control", placeholder: '※修理希望箇所キズetc.' %></p>
+
+<%= f.submit '無料見積もりを申し込む' %>
+<% end %>

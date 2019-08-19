@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2019_08_17_095421) do
     t.string "insurance_select"
     t.integer "user_id"
     t.string "area"
+    t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
