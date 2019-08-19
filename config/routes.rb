@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :grades
   resources :makers
   root "car_items#index"
-  get "/enquiries/insurance", to: "enquiries#insurance" 
+  get "/enquiries/insurance", to: "enquiries#insurance"
   post  "/enquiries/create", to: "enquiries#create" , as: 'enquiries'
+  get "/enquiries/automobile", to: "enquiries#automobile"
 end

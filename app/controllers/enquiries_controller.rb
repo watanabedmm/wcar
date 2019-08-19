@@ -4,7 +4,8 @@ def assessment
 end
 
 def automobile
-	
+	@enquiry = Enquiry.new
+	@user = current_user
 end
 
 def insurance

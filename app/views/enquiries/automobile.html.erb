@@ -1,12 +1,13 @@
 <h1>車検のご予約</h1>
-<p>おなまえ</p>
-<p>ひらがな＊全角ひらがなでご記入ください</p>
-<p>苗字入力</p>
-<p>名前入力</p>
+<%= form_for(@enquiry) do |f| %>
+<p>名前</p>
+<%= @user.name_last %>
+<%= @user.name_first %>
 <p>電話番号</p>
-<p>電話番号入力</p>
+<%= @user.phone %>
 <p>地域</p>
-<p>地域選択</p>
-<p>予約送信</p>
+<p><%= f.select :area, Enquiry.areas.keys.to_a,{} %></p>
+<%= f.submit '無料車検お見積もり・予約' %>
+<% end %>
 
 
