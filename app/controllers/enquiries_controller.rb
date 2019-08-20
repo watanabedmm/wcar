@@ -1,6 +1,7 @@
 class EnquiriesController < ApplicationController
 def assessment
-	
+	@enquiry = Enquiry.new
+	@user = current_user
 end
 
 def automobile

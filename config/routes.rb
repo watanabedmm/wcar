@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   post  "/enquiries/create", to: "enquiries#create" , as: 'enquiries'
   get "/enquiries/automobile", to: "enquiries#automobile"
   get "/enquiries/repair", to: "enquiries#repair"
+  get "/enquiries/assessment", to: "enquiries#assessment"
 end

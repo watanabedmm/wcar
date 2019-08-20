@@ -1,14 +1,22 @@
 <h1>査定申し込み</h1>
 <p>24時間いつでもご予約できます！</p>
+<%= form_for(@enquiry) do |f| %>
 <h3>お客様の愛車について</h3>
 <p>メーカ名</p>
+<%= f.select :mycar_maker, Enquiry.mycar_makers.keys.to_a,{} %>
 <p>車種名</p>
+<%= f.text_field :mycar_name, class: "form-control", placeholder: '車種名' %>
 <p>年式</p>
-<p><走行距離</p>
+<%= f.select :mycar_year, Enquiry.mycar_years.keys.to_a,{} %>
+<p>走行距離</p>
+<%= f.select :mycar_distance, Enquiry.mycar_distances.keys.to_a,{} %>
 <h3>お客様について</h3>
-<p>おなまえ</p>
-<p>ひらがな＊全角ひらがなでご記入ください</p>
-<p><電話番号</p>
-<p>都道府県</p>
-<p>無料査定を申し込む</p>
-
+<p>名前</p>
+<%= @user.name_last %>
+<%= @user.name_first %>
+<p>電話番号</p>
+<%= @user.phone %>
+<p>地域</p>
+<%= f.select :area, Enquiry.areas.keys.to_a,{} %>
+<%= f.submit '無料査定を申し込む' %>
+<% end %>
