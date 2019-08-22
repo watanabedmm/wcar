@@ -7,6 +7,7 @@ class CreateGrades < ActiveRecord::Migration[5.2]
     	t.integer :doortype
     	t.integer :car_id
       t.timestamps
+      t.string :shift
     end
   end
 end

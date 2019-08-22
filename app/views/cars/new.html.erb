@@ -1,0 +1,67 @@
+<div class="container" style="margin-top:8em;">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3" >
+
+			<%= form_for(@car) do |f| %>
+			<ul>
+				<li>
+					メーカー
+					<p><%= f.select :maker_id, Maker.all.map{|t| [t.name, t.id]}, :prompt => "選択してください" %></p>
+				</li>
+				<li>
+					車名
+					<p><%= f.text_field :name, class: "form-control", placeholder: '車名を入力してください' %></p>
+				</li>
+			<%= f.fields_for :grades do |i| %>
+				<li>
+					グレード
+					<p><%= i.text_field :name, class: "form-control", placeholder: 'グレードを入力してください' %></p>
+				</li>
+			<%= f.fields_for :car_items do |g| %>
+				<li>
+					年式
+					<p><%= g.select :year, CarItem.all.map{|t| [t.year, t.id]}, :prompt => "選択してください" %></p>
+				</li>
+				<li>
+					価格
+					<p><%= g.text_field :price, class: "form-control", placeholder: '価格を入力してください' %></p>
+				</li>
+				<li>
+					距離
+					<p><%= g.text_field :distance, class: "form-control", placeholder: '走行距離を入力してください' %></p>
+				</li>
+				<li>
+					排気量
+					<p><%= i.text_field :displacement, class: "form-control", placeholder: '排気量を入力してください' %></p>
+				</li>
+				<li>
+					ジャケット写真
+					<p></p>
+				</li>
+				<li>
+					シフト<br>
+  					<p>
+  						<%= i.radio_button :shift, :"AT" %> AT
+  						<%= i.radio_button :shift, :"MT" %> MT
+  					</p>
+				</li>
+				<li>
+					定員
+					<p><%= i.text_field :fixed_number, class: "form-control", placeholder: '定員を入力してください' %></p>
+				</li>
+				<li>
+					色
+					<p><%= g.text_field :color, class: "form-control", placeholder: '色を入力してください' %></p>
+				</li>
+			</ul>
+		</div>
+		<div class="row">
+			<div class="col-md-2 col-md-offset-5" >
+				<%= f.submit class: "btn-flat-border" %>
+			</div>
+		</div>
+		<% end %>
+		<% end %>
+		<% end %>
+	</div>
+</div>

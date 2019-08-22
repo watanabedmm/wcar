@@ -78,11 +78,12 @@ ActiveRecord::Schema.define(version: 2019_08_17_095421) do
     t.integer "car_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "shift"
   end
 
   create_table "makers", force: :cascade do |t|
-    t.string "name", null: false
-    t.boolean "is_japan", null: false
+    t.string "name"
+    t.boolean "is_japan", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
