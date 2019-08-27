@@ -1,0 +1,57 @@
+<div class="container" style="margin-top:8em;">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3" >
+            <%= form_for(@car_item) do |f| %>
+                <ul>
+                    <li>
+                        メーカー
+                        <p><%= f.select :maker_id, Maker.all.map{|t| [t.name, t.id]}, :prompt => "選択してください" %></p>
+                    </li>
+                    <li>
+                        車名
+                        <p><%= f.select :car_id, Car.all.map{|n| [n.name, n.id]}, :prompt => "選択してください" %></p>
+                    </li>
+                    <li>
+                        グレード
+                        <p><%= f.select :grade_id, Grade.all.map{|y| [y.name, y.id]}, :prompt => "選択してください" %></p>
+                    </li>
+                            <li>
+								年式
+								<p><%= f.select :year, CarItem.caryears.keys.to_a,{} , {prompt: '選択してください'} %></p>
+							</li>
+							<li>
+								車検
+								<p><%= f.text_field :inspection, class: "form-control", placeholder: '車検を入力してください{**年**月}' %></p>
+							</li>
+                            <li>
+                                価格
+                                <p><%= f.text_field :price, class: "form-control", placeholder: '価格を入力してください' %>万円</p>
+                            </li>
+                            <li>
+                                距離
+                                <p><%= f.text_field :distance, class: "form-control", placeholder: '走行距離を入力してください' %>km</p>
+                            </li>
+                            <li>
+                                ジャケット写真
+                                <p></p>
+                            </li>
+                            <li>
+                                色
+                                <p><%= f.text_field :color, class: "form-control", placeholder: '色を入力してください' %></p>
+                            </li>
+                            <li>
+								<div id="equipments">
+									<%= f.fields_for :equipments do |equipment| %>
+									<%= render 'equipment_fields', t: equipment  %>
+									<% end %>
+								</div>
+								<div class="links">
+								<span><%= link_to_add_association '装備を追加', f, :equipments %></span>
+								</div>
+							</li>
+                </ul>
+                <%= f.submit class: "btn-flat-border" %>
+            <% end %>
+        </div>
+    </div>
+</div>

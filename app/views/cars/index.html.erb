@@ -1,0 +1,6 @@
+<h1>在庫車両から検索</h1>
+<h3>メーカーから検索</h3>
+<h4>国産車から探す</h4>
+<% @makers.each do |maker| %>
+<%= link_to maker.name, car_items_path(id: maker.id), class: 'btn btn-primary' %>
+<%end%>

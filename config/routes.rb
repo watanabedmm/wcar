@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :equipments
   resources :grades
   resources :makers
-  root "car_items#index"
+  root "cars#link"
   get "/enquiries/insurance", to: "enquiries#insurance"
   post  "/enquiries/create", to: "enquiries#create" , as: 'enquiries'
   get "/enquiries/automobile", to: "enquiries#automobile"

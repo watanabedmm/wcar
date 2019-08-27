@@ -1,22 +1,27 @@
-<div class="jumbotron">
-    <h1>LINK</h1>
-</div>
 <div class="container">
-	<div class="row">
-		<div class="col-md-3">
-			<h2><%= link_to "売る", enquiries_assessment_path, class: 'btn-circle-fishy' %></h2>
-		</div>
-		<div class="col-md-3">
-    		<h2><%= link_to "探す", "#", class: 'btn-circle-fishy' %></h2>
-    	</div>
-    	<div class="col-md-3">
-    		<h2><%= link_to "車検", enquiries_automobile_path, class: 'btn-circle-fishy' %></h2>
-    	</div>
-    	<div class="col-md-3">
-    		<h2><%= link_to "保険", enquiries_insurance_path, class: 'btn-circle-fishy' %></h2>
-    	</div>
+    <div class="row">
         <div class="col-md-3">
-            <h2><%= link_to "修理", enquiries_repair_path, class: 'btn-circle-fishy' %></h2>
+            <div>
+                車一覧
+                <h4><%= @maker.name %></h4>
+                <% @maker.cars.each do |car| %>
+                    <% car.grades.each do |grade| %>
+                        <% grade.car_items.each do |item| %>
+                                <h4><%= car.name %></h4>
+                                <h4><%= grade.name %></h4>
+                                <h4><%= grade.displacement %>cc</h4>
+                                <h4><%= item.year %></h4>
+                                <h4><%= item.price %>万円</h4>
+                                <h4><%= item.distance %>km</h4>
+                                <h4><%= item.inspection %></h4>
+                            <p>装備⬇️</p>
+                            <% item.equipments.each do |equipment| %>
+                                <%= equipment.name %>/
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+            </div>
         </div>
     </div>
 </div>

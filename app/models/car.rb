@@ -1,6 +1,8 @@
 class Car < ApplicationRecord
 has_many :grades
+has_many :car_items
 belongs_to :maker
-accepts_nested_attributes_for :grades, allow_destroy: true
+
+
 
 end

@@ -32,13 +32,16 @@ ActiveRecord::Schema.define(version: 2019_08_17_095421) do
   end
 
   create_table "car_items", force: :cascade do |t|
-    t.integer "year"
+    t.string "year"
     t.integer "distance"
-    t.integer "inspection"
+    t.string "inspection"
     t.string "color"
-    t.integer "price"
-    t.string "image_id"
-    t.string "grade_id"
+    t.string "price"
+    t.integer "image_id"
+    t.integer "grade_id"
+    t.integer "car_id"
+    t.integer "equipment_id"
+    t.integer "maker_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -46,6 +49,7 @@ ActiveRecord::Schema.define(version: 2019_08_17_095421) do
   create_table "cars", force: :cascade do |t|
     t.string "name"
     t.integer "maker_id"
+    t.integer "grade_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -66,6 +70,7 @@ ActiveRecord::Schema.define(version: 2019_08_17_095421) do
   create_table "equipment", force: :cascade do |t|
     t.string "name"
     t.integer "grade_id"
+    t.integer "car_item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -74,11 +79,11 @@ ActiveRecord::Schema.define(version: 2019_08_17_095421) do
     t.string "name"
     t.integer "displacement"
     t.integer "fixed_number"
-    t.integer "doortype"
     t.integer "car_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "shift"
+    t.integer "equipment_id"
   end
 
   create_table "makers", force: :cascade do |t|

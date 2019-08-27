@@ -1,3 +1,3 @@
 class Equipment < ApplicationRecord
-belongs_to :grade
+belongs_to :car_item
 end

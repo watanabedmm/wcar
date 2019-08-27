@@ -5,11 +5,21 @@ def new
        disc = @car.grades.build
        disc.car_items.build
 end
+
 def create
     @car = Car.new(car_params)
     @car.save
      #binding.pry
-    redirect_to car_items_path
+    redirect_to cars_path
+end
+
+def index
+ 	@makers = Maker.all
+ 	#binding.pry
+end
+
+def link
+
 end
 
 def car_params
@@ -29,6 +39,10 @@ def car_params
 									    									:color,
 									    									:price,
 									    									:image_id,
-									    									:grade_id]])
-  end
+									    									:grade_id],
+									    			equipments_attributes: [:id,
+									    									:name,
+									    									:grade_id,
+									    									:_destroy,]])
+end
 end
