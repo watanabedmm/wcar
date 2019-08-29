@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <ul>
+              <div class="col-md-12" >
+                <li><%= @car_item.maker.name %><%= @car_item.car.name %><%= @car_item.grade.name %></li>
+              </div>
+              <div class="col-md-5" >
+                <li><%= attachment_image_tag @car_item, :image, fallback: "no_image.jpg", size:'400x350', format:'jpg' %>
+                </li>
+              </div>
+              <div class="col-md-7" >
+                <div class="col-md-3" >
+                  <li>シフト</li>
+                  <li>色</li>
+                  <li>車検</li>
+                </div>
+                <div class="col-md-3" >
+                  <li><%= @car_item.grade.shift %></li>
+                  <li><%= @car_item.color %></li>
+                  <li><%= @car_item.inspection %></li>
+                </div>
+                <div class="col-md-3" >
+                  <li>定員</li>
+                  <th>排気量</li>
+                  <li>走行距離</li>
+                </div>
+                <div class="col-md-3" >
+                  <li><%= @car_item.grade.fixed_number %></li>
+                  <li><%= @car_item.grade.displacement %>cc</li>
+                  <li><%= @car_item.distance %></li>
+                </div>
+                <div class="col-md-10" >
+                  <p>装備⬇︎</p>
+                    <% @car_item.equipments.each do |equipment| %>
+                       <%= equipment.name %>/
+                    <% end %>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="text-center" >
+  <h1>今すぐお問い合わせ！</h1>
+    <%= form_for(@enquiry) do |f| %>
+    <h3>名前</h3>
+      <%= @user.name_last %>
+      <%= @user.name_first %>
+    <h3>電話番号</h3>
+      <%= @user.phone %>
+    <h3>地域</h3>
+      <%= f.select :area, Enquiry.areas.keys.to_a,{} %>
+    <h3>メールアドレス</h3>
+      <%= @user.email %>
+    <h4><%= link_to "ユーザー情報変更", edit_user_path %></h4>
+    <div class="actions">
+      <%= f.submit '在庫確認・お問合せ(無料)' %>
+    </div>
+    <% end %>
+</div>

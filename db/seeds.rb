@@ -54,3 +54,7 @@ Grade.where(car_id: 1).each do |grade|
   grade.fixed_number = 5
   grade.save
 end
+Grade.where(car_id: 1).each do |grade|
+  grade.shift = "AT"
+  grade.save
+end

@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>ユーザー編集ページ</h2>
+            <%= form_for(@user) do |f| %>
+            <p>姓</p>
+            <%= @user.name_first %>
+            <%= f.text_field :name_first %>
+            <p>名</p>
+            <%= @user.name_last %>
+            <%= f.text_field :name_last %>
+            <h3>郵便番号</h3>
+            <%= @user.post_code %>
+            <%= f.text_field :post_code %>
+
+            <h3>住所</h3>
+            <%= @user.address %>
+            <%= f.text_field :address %>
+
+            <h3>TEL</h3>
+            <%= @user.phone %>
+            <%= f.text_field :phone %>
+
+            <%= f.submit 'アップデート' %>
+            <% end %>
+        </div>
+    </div>
+<div>

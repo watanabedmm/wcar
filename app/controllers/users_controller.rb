@@ -5,6 +5,18 @@ def destroy
     redirect_to  car_items_path
     flash[:notice] = "削除されました"
 end
+def edit
+		@user = User.find(params[:id])
+	end
+
+	def update
+  	@user = User.find(params[:id])
+	  	if @user.update(user_params)
+			redirect_to items_path(@user.id)
+		else
+			render :edit
+		end
+  	end
 
 
 

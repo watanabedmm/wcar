@@ -6,7 +6,7 @@ class CreateCarItems < ActiveRecord::Migration[5.2]
     	t.string :inspection
       t.string :color
     	t.string :price
-    	t.integer :image_id
+    	t.string :image_id
     	t.integer :grade_id
       t.integer :car_id
       t.integer :equipment_id

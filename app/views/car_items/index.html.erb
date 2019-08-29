@@ -1,27 +1,69 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-12">
             <div>
-                車一覧
-                <h4><%= @maker.name %></h4>
-                <% @maker.cars.each do |car| %>
-                    <% car.grades.each do |grade| %>
-                        <% grade.car_items.each do |item| %>
-                                <h4><%= car.name %></h4>
-                                <h4><%= grade.name %></h4>
-                                <h4><%= grade.displacement %>cc</h4>
-                                <h4><%= item.year %></h4>
-                                <h4><%= item.price %>万円</h4>
-                                <h4><%= item.distance %>km</h4>
-                                <h4><%= item.inspection %></h4>
-                            <p>装備</p>
-                            <% item.equipments.each do |equipment| %>
-                                <%= equipment.name %>/
-                            <% end %>
-                        <% end %>
-                    <% end %>
-                <% end %>
+              <ul>
+                <p>車一覧</p>
+                <div class="col-md-3">
+                  <li></li>
+                </div>
+                <div class="col-md-8">
+                  <div class="col-md-3">
+                    <li>金額</li>
+                  </div>
+                  <div class="col-md-3">
+                    <li>年式</li>
+                  </div>
+                  <div class="col-md-2">
+                    <li>走行距離</li>
+                  </div>
+                  <div class="col-md-2">
+                    <li>排気量</li>
+                  </div>
+                  <div class="col-md-2">
+                    <li>車検</li>
+                  </div>
+              </ul>
             </div>
+              <% @maker.cars.each do |car| %>
+                  <% car.grades.each do |grade| %>
+                      <% grade.car_items.each do |item| %>
+                        <%= link_to car_item_path(item) do %>
+                          <ul>
+                            <div class="col-md-12" >
+                              <li><%= @maker.name %><%= car.name %><%= grade.name %></li>
+                            </div>
+                            <div class="col-md-3">
+                              <li><%= attachment_image_tag item, :image, fallback: "no_image.jpg", size:'230x150', format:'jpg' %>
+                              </li>
+                            </div>
+                            <div class="col-md-8">
+                              <div class="col-md-3">
+                                <li><%= item.price %>万円</li>
+                              </div>
+                              <div class="col-md-3">
+                                <li><%= item.year %></li>
+                              </div>
+                              <div class="col-md-2">
+                                <li><%= item.distance %>km</li>
+                              </div>
+                              <div class="col-md-2">
+                                <li><%= grade.displacement %>cc</li>
+                              </div>
+                              <div class="col-md-2">
+                                <li><%= item.inspection %></li>
+                              </div>
+                              <div class="col-md-11">
+                                <p>装備⬇︎</p>
+                                  <% item.equipments.each do |equipment| %>
+                                     <%= equipment.name %>/
+                                  <% end %>
+                                  <% end %>
+                              </div>
+                            </ul>
+                      <% end %>
+                  <% end %>
+              <% end %>
         </div>
     </div>
 </div>

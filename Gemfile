@@ -1,4 +1,4 @@
-⬇️source 'https://rubygems.org'
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.5'
@@ -67,5 +67,7 @@ gem 'jquery-rails'
 gem 'rubyzip'
 gem 'cocoon'
 gem 'ransack'
-gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick"
+gem 'refile', require: 'refile/rails', github: 'manfe/refile'
+gem 'refile-mini_magick'
+gem 'rails_admin', '~> 1.3'
+gem 'cancancan', '~> 2.0'

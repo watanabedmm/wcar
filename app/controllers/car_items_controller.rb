@@ -14,6 +14,12 @@ def index
  	@maker = Maker.find(params[:id])
 end
 
+def show
+	@car_item = CarItem.find(params[:id])
+	@eqipment = Equipment.find(params[:id])
+	@enquiry = Enquiry.new
+	@user = current_user
+end
 
 
 def car_item_params
@@ -23,7 +29,7 @@ def car_item_params
 									:inspection,
 									:color,
 									:price,
-									:image_id,
+									:image,
 									:grade_id,
 									:car_id,
 									:maker_id,
