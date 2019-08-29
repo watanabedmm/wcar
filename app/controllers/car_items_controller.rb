@@ -12,6 +12,7 @@ end
 
 def index
  	@maker = Maker.find(params[:id])
+ 	@user = current_user
 end
 
 def show
@@ -33,6 +34,7 @@ def car_item_params
 									:grade_id,
 									:car_id,
 									:maker_id,
+									:user_id,
 									equipments_attributes: [:id,
 															:name,
 					    									:grade_id,

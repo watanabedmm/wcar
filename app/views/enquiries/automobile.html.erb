@@ -1,5 +1,6 @@
 <h1>車検のご予約</h1>
 <%= form_for(@enquiry) do |f| %>
+<%= f.hidden_field :number, :value => "車検" %>
 <p>名前</p>
 <%= @user.name_last %>
 <%= @user.name_first %>

@@ -1,5 +1,6 @@
 <h1>修理問い合わせ</h1>
 <%= form_for(@enquiry) do |f| %>
+<%= f.hidden_field :number, :value => "修理" %>
 <p>名前</p>
 <%= @user.name_last %>
 <%= @user.name_first %>
@@ -8,7 +9,7 @@
 <p>地域</p>
 <%= f.select :area, Enquiry.areas.keys.to_a,{} %>
 <p>メーカー名</p>
-<%= f.select :mycar_maker, Enquiry.mycar_makers.keys.to_a,{} %>
+<%= f.select :mycar_maker, Enquiry.mycar_makers.keys %>
 <p>車種名</p>
 <%= f.text_field :mycar_name, class: "form-control", placeholder: '車種名' %>
 <p>任意コメント</p>

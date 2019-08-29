@@ -58,3 +58,14 @@ Grade.where(car_id: 1).each do |grade|
   grade.shift = "AT"
   grade.save
 end
+
+[
+  ['a@a', '111111', '義優', '渡邊', '111-1111', '東京', '111-1111-1111'],
+  ['wy@wy', '222222', '管理者名前', '管理者苗字', '222-2222', '沖縄', '222-2222-2222'],
+  ['test3@test.com', '333333', '剛', '宮下', '333-3333', '北海道', '333-3333-3333'],
+  ['test4@test.com', '444444', '陽介', '大葉', '444-4444', '岩手', '444-4444-4444']
+].each do |mail, pass, name_f, name_l, post, add, num|
+  User.create!(
+    { email: mail, password: pass, name_first: name_f, name_last: name_l, post_code: post, address: add, phone: num }
+  )
+end

@@ -8,5 +8,6 @@
         <h1>マイページ<br>
           <small><%= current_user.name_last %>さん、こんにちは！</small>
         </h1>
+          <%= link_to "サイトへ" , root_path, class: 'btn btn-primary' %>
       </div>
     <% end %>

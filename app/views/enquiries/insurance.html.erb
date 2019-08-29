@@ -1,5 +1,6 @@
 <h1>保険のお問合せ</h1>
 <%= form_for(@enquiry) do |f| %>
+<%= f.hidden_field :number, :value => "保険" %>
 <p>名前</p>
 <%= @user.name_last %>
 <%= @user.name_first %>
@@ -9,9 +10,9 @@
 <%= f.select :area, Enquiry.areas.keys.to_a,{} %>
 <p>コメント</p>
 <p>
-	<%= f.radio_button :insurance_select, "保険に加入したい" %>保険に加入したい
-	<%= f.radio_button :insurance_select, "保険の見直し" %>保険の見直し
-	<%= f.radio_button :insurance_select, "その他" %>その他
+	<%= f.radio_button :insurance_select, :保険に加入したい %>保険に加入したい
+	<%= f.radio_button :insurance_select, :保険の見直し %>保険の見直し
+	<%= f.radio_button :insurance_select, :その他 %>その他
 </p>
 <%= f.submit '簡単お見積もり' %>
 <% end %>

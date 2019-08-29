@@ -22,7 +22,7 @@ def create
 	@enquiry = Enquiry.new(enquiry_params)
 	@enquiry.user_id = current_user.id
 		if @enquiry.save
-			redirect_to car_items_path
+			redirect_to root_path
 		else
 			render :insurance
 		end
@@ -30,6 +30,6 @@ end
 
 private
 	def enquiry_params
-	   	params.require(:enquiry).permit(:id,:mycar_maker,:mycar_name,:mycar_distance,:mycar_year,:insurance_select, :user_id , :area, :comment )
+	   	params.require(:enquiry).permit(:id,:number,:user_id, :area,:mycar_name,:comment,:insurance_select,:mycar_maker,:mycar_distance,:mycar_year)
 	end
 end

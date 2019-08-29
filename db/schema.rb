@@ -55,14 +55,15 @@ ActiveRecord::Schema.define(version: 2019_08_29_071431) do
   end
 
   create_table "enquiries", force: :cascade do |t|
+    t.string "number"
+    t.integer "user_id"
+    t.string "area"
+    t.string "comment"
     t.string "mycar_maker"
     t.string "mycar_name"
     t.string "mycar_distance"
     t.string "mycar_year"
     t.string "insurance_select"
-    t.integer "user_id"
-    t.string "area"
-    t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

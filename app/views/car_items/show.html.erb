@@ -43,6 +43,7 @@
 <div class="text-center" >
   <h1>今すぐお問い合わせ！</h1>
     <%= form_for(@enquiry) do |f| %>
+    <%= f.hidden_field :number, :value => "在庫確認" %>
     <h3>名前</h3>
       <%= @user.name_last %>
       <%= @user.name_first %>
